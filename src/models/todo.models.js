@@ -7,13 +7,6 @@ export async function getAllTodos(){
 
 }
 
-let nextId = 3;
-
-let todos =[
-    {id:1, task:"Try to have fun with express",done:false},
-    {id:2, task:"Buy eggs", done: false}
-]
-
 // function getAllTodos(){
 //     return todos;
 // }

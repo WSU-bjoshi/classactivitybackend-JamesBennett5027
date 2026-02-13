@@ -6,7 +6,7 @@ export async function getTodosService(){
     return await ToDoModel.getAllTodos();
 }
 
-function createTodoService(task){
+export async function createTodoService(task){
     if(!task || typeof task !=="string" || task.trim()===""){
         // return res.status(400).json({error:"task is required. You should provide non-empty string"});
         throw new error("Invalid task")
@@ -28,8 +28,6 @@ function deleteTodoByIdService(id){
 
 
 export {
-    
-    createTodoService,
     toggleTodoByIdService,
     deleteTodoByIdService
 

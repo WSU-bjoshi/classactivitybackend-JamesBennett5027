@@ -8,7 +8,7 @@ export async function listTodos(req, res){
 }
 
 
-export function createTodos(req, res){
+export async function createTodos(req, res){
     try{
         const {task} = req.body;
         const todo = createTodoService(task);
