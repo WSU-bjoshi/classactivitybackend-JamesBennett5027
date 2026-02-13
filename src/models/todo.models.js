@@ -1,24 +1,33 @@
+import pool from "../db/connection.js";
+
+export async function getAllTodos(){
+    const [rows] = await pool.query("SELECT * FROM todos;")
+    console.log(rows);
+    return rows;
+
+}
+
 let nextId = 3;
 
 let todos =[
-    {id:1, task:"Tryr to have fun with express",done:false},
+    {id:1, task:"Try to have fun with express",done:false},
     {id:2, task:"Buy eggs", done: false}
 ]
 
-function getAllTodos(){
-    return todos;
-}
+// function getAllTodos(){
+//     return todos;
+// }
 
-function createTodo(task){
+async function createTodo(task){
     //   if(!task || typeof task !=="string" || task.trim()===""){
     //     // return res.status(400).json({error:"task is required. You should provide non-empty string"});
     //     throw new error("Invalid task")
     // }
 
-    const todo ={id: nextId++, task:task.trim(), done: false};
-    todos.push(todo);
-
-    return todo;
+   const [result] = await pool.query(
+    "INSERT INTO TODOS(TASK) VALUES (?)", [TASK]
+   )
+    return {id:result.insertid ,task,completed:false};
 }
 
 function toggleTodoById(id){
@@ -41,8 +50,8 @@ function deleteTodoById(id){
 }
 
 export default {
-    getAllTodos, 
-    createTodo, 
+     
+     
     toggleTodoById, 
     deleteTodoById
 };
