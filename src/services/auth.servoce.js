@@ -12,7 +12,7 @@ export async function register({name,email,password}) {
    const user = await User.create({
     name,user_email:normalzeEmail,paswordhash
    });
-   const token = signAccessToken({sub: String(user.user_id,email: user.user_email)});
+   const token = signAccessToken({sub: String(user.user_id,email, user.user_email)});
    return{ok: true,data:{toekn,user:{id:user,user_id,name:user.user_name}}}
 }
 export async function login({email,password}) {
