@@ -1,4 +1,4 @@
-import { DataTypes } from "sequelize";
+import { DataTypes, } from "sequelize";
 import sequelize from "../db/sequelize.js";  
 
 const User = sequelize.define(
@@ -21,6 +21,8 @@ const User = sequelize.define(
         user_password:{
             type: DataTypes.STRING(255),
             allowNull: false
+        },user_type:{
+            type:DataTypes.ENUM
         }
     },
     {
